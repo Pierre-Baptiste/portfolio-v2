@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 import { messages } from "messages";
+import { AppBar } from "components/ui/AppBar";
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -12,6 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       locale={locale || defaultLocale}
       messages={messages[locale || defaultLocale]}
     >
+      <AppBar />
       <Component {...pageProps} />
     </IntlProvider>
   );
