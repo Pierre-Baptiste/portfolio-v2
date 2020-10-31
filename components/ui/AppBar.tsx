@@ -20,7 +20,7 @@ const AppBar = () => {
 
   const generateMenuItems = (content) => {
     const itemsList = content.map((link, index) => (
-      <Link href={link.href}>
+      <Link href={link.href} key={link.labelId}>
         <a className="lg:inline-flex px-3 text-lightgray items-center hover:text-action font-mono font-hairline text-xs">
           {`0${index + 1} : `}
           <FormattedMessage
@@ -41,7 +41,7 @@ const AppBar = () => {
 
   const generateLanguageItems = (languages) => {
     const itemsList = languages.map((language) => (
-      <Link href="" locale={language.toLowerCase()}>
+      <Link href="" locale={language.toLowerCase()} key={language}>
         <a
           className={`lg:inlineflex px-1 font-hairline text-xs font-mono ${
             locale.toLowerCase() === language.toLowerCase()
